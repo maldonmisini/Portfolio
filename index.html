@@ -15,29 +15,37 @@
     <header class="header">
         <div class="container">
             <div class="nav">
-                <div class="logo">ℳℳ𝒾𝓈𝒾𝓃𝒾</div>
+                <a href="index.html" class="logo">ℳℳ𝒾𝓈𝒾𝓃𝒾</a>
+
+                <!-- Nav links në mes (vetëm në desktop) -->
+                <nav class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="#biografi" data-sq="Profili" data-en="Profile">Profili</a></li>
+                        <li><a href="#skills" data-sq="Aftësitë" data-en="Skills">Aftësitë</a></li>
+                        <li><a href="#shkollim" data-sq="Shkollim" data-en="Education">Shkollimi</a></li>
+                        <li><a href="#experience" data-sq="Përvoja" data-en="Experience">Përvoja</a></li>
+                        <li><a href="#certifikata" data-sq="Çertifikata" data-en="Certificates">Çertifikata</a></li>
+                        <li><a href="#hobbies" data-sq="Hobitë" data-en="Hobbies">Hobitë</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Kontrollet në të djathtë -->
                 <div class="nav-controls">
                     <div id="language-toggle" class="language-toggle">
-                        <span class="lang-option active" data-lang="sq">Shqip</span>
-                        <span class="lang-option" data-lang="en">English</span>
+                        <span class="lang-option active" data-lang="sq">SQ</span>
+                        <span class="lang-option" data-lang="en">EG</span>
                     </div>
                     <button id="dark-mode-toggle" class="dark-mode-btn">🌙</button>
                     <div class="hamburger">☰</div>
                 </div>
             </div>
-            <nav class="nav-menu">
-                <ul class="nav-links">
-                    <li><a href="#biografi" data-sq="Profili" data-en="Profile">Profili</a></li>
-                    <li><a href="#skills" data-sq="Aftësitë" data-en="Skills">Aftësitë</a></li>
-                    <li><a href="#shkollim" data-sq="Shkollim" data-en="Education">Shkollimi</a></li>
-                    <li><a href="#experience" data-sq="Përvoja" data-en="Experience">Përvoja</a></li>
-                    <li><a href="#certifikata" data-sq="Çertifikata" data-en="Certificates">Çertifikata</a></li>
-                    <li><a href="#hobbies" data-sq="Hobitë" data-en="Hobbies">Hobitë</a></li>
-                    <li><a href="#kontakt" data-sq="Kontakti" data-en="Contact">Kontakti</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
+    <section id="profile" class="profile">
+        <div class="profile-wrapper">
+            <img src="images/profile.jpg" alt="Maldon Misini" class="profile-pic">
+        </div>
+    </section>
 
     <!-- Biografi -->
     <section id="biografi" class="hero">
@@ -45,6 +53,9 @@
             <div class="hero-content">
                 <div class="bio-container">
                     <h1 class="typing-text" data-sq="Maldon Misini" data-en="Maldon Misini">Maldon Misini</h1>
+                </div>
+                <div class="bio-container">
+                    <h3 class="profession-typing-text"><span class="typing"></span></h3>
                 </div>
                 <div class="bio-container">
                     <div class="bio-text">
@@ -86,28 +97,28 @@
         <div class="container">
             <h2 data-sq="Aftësitë e Mia" data-en="My Skills">Aftësitë e Mia</h2>
             <div class="skills-grid">
-                <div class="skill-card">
+                <div class="skill-card"><i class="fa-solid fa-laptop"></i>
                     <h3 data-sq="Web Development" data-en="Web Development">Zhvillim i Aplikacioneve</h3>
                     <p>HTML5/CSS3/JavaScript/PHP</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card"><i class="fa-solid fa-code"></i>
                     <h3 data-sq="Gjuhë Programimi" data-en="Programming Languages">Gjuhë Programimi</h3>
                     <p>Java/Python</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card"><i class="fa-solid fa-database"></i>
                     <h3 data-sq="Bazat e të Dhënave" data-en="Databases">Bazat e të Dhënave</h3>
                     <p>MySQL/MongoDB</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card"><i class="fa-solid fa-tools"></i>
                     <h3 data-sq="Vegla Profesionale" data-en="Tools">Vegla Profesionale</h3>
                     <p>GitHub/Excel/PowerPoint/ Access/Word</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card"><i class="fa-solid fa-language"></i>
                     <h3 data-sq="Gjuhët" data-en="Languages">Gjuhët</h3>
                     <p data-sq="Shqip(Native)/Anglisht(C1)" data-en="Albanian(Native)/English(C1)">
                         Shqip(Native)/Anglisht(C1)</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card"><i class="fa-solid fa-people-group"></i>
                     <h3 data-sq="Tjera" data-en="Other">Tjera</h3>
                     <p data-sq="OJQ-të (Trajnime/Punë Vullnetare)" data-en="NGOs (Workshops/Volunteer Work)">
                         OJQ-të(Trajnime/Punë Vullnetare)</p>
@@ -121,7 +132,7 @@
         <div class="container">
             <h2 data-sq="Shkollimi" data-en="Education">Shkollimi</h2>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item"><i class="fa-solid fa-school"></i>
                     <h3 data-sq="Shkolla Fillore e Mesme e Ulët 'Ramiz Cernica'"
                         data-en="Primary and Lower Secondary School 'Ramiz Cerica'">Shkolla Fillore e Mesme e Ulët
                         "Ramiz Cernica"</h3>
@@ -136,7 +147,7 @@
                     <button class="view-cert-btn" data-large="images/certificate1.jpg" data-sq="Shiko Çertifikatën"
                         data-en="View Certificate">Shiko Çertifikatën</button>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item"><i class="fa-solid fa-school"></i>
                     <h3 data-sq="Shkolla Fillore e Mesme e Ulët 'Nazmi Hoxha'"
                         data-en="Primary and Lower Secondary School 'Nazmi Hoxha'">Shkolla Fillore e Mesme e Ulët "Nazmi
                         Hoxha"</h3>
@@ -150,7 +161,7 @@
                     <button class="view-cert-btn" data-large="images/certificate1.jpg" data-sq="Shiko Çertifikatën"
                         data-en="View Certificate">Shiko Çertifikatën</button>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item"><i class="fa-solid fa-flask"></i>
                     <h3 data-sq="Gjimnazi i Shkencave Natyrore 'Xhavit Ahmeti'"
                         data-en="Natural Sciences Gymnasium 'Xhavit Ahmeti'">Gjimnazi i Shkencave Natyrore "Xhavit
                         Ahmeti"</h3>
@@ -166,7 +177,7 @@
                     <button class="view-cert-btn" data-large="images/certificate14.jpg" data-sq="Shiko Çertifikatën"
                         data-en="View Certificate">Shiko Çertifikatën</button>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item"><i class="fa-solid fa-building-columns"></i>
                     <h3 data-sq="Universiteti Publik 'Kadri Zeka' - Fakulteti i Shkencave Kompjuterike"
                         data-en="Public University 'Kadri Zeka' - Faculty of Computer Science">
                         Universiteti Publik 'Kadri Zeka' - Fakulteti i Shkencave Kompjuterike
@@ -194,7 +205,7 @@
         <div class="container">
             <h2 data-sq="Përvoja e Punës" data-en="Work Experience">Përvoja e Punës</h2>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item"><i class="fa-solid fa-chalkboard-teacher"></i>
                     <h3 data-sq="Praktikë në Shkollë Digjitale" data-en="Digital School Internship">
                         Praktikë në Shkollë Digjitale
                     </h3>
@@ -215,23 +226,27 @@
                 </div>
 
 
-                <div class="timeline-item">
+                <div class="timeline-item"><i class="fa-solid fa-laptop"></i>
                     <h3 data-sq="Projekte Freelance" data-en="Freelance Projects">Projekte Freelance</h3>
                     <p>2024 - Sot</p>
                     <p>Gjilan</p>
                     <p data-sq="Punova në projekte web me HTML, CSS, dhe JavaScript për klientë lokalë."
                         data-en="Worked on web projects with HTML, CSS, and JavaScript for local clients.">Punova në
                         projekte web me HTML, CSS, dhe JavaScript për klientë lokalë.</p>
-                    <a href="https://github.com/maldonmisini" target="_blank" class="project-link"
-                        data-sq="Shiko GitHub" data-en="View GitHub">Shiko GitHub</a>
+                    <a href="https://github.com/maldonmisini" target="_blank" class="project-link">
+                        <i class="fa-brands fa-github"></i> Shiko GitHub
+                    </a>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item"><i class="fa-solid fa-network-wired"></i>
                     <h3 data-sq="Stazh në Zhvillim Web" data-en="Web Development Internship">Stazh në Zhvillim Web</h3>
                     <p>2023</p>
                     <p data-sq="Kompanitë lokale, Gjilan" data-en="Local companies, Gjilan">Kompanitë lokale, Gjilan</p>
                     <p data-sq="Mësova bazat e React dhe Node.js duke ndihmuar në zhvillimin e faqeve web."
                         data-en="Learned basics of React and Node.js while assisting in web page development.">Mësova
                         bazat e React dhe Node.js duke ndihmuar në zhvillimin e faqeve web.</p>
+                    <a href="https://github.com/maldonmisini" target="_blank" class="project-link">
+                        <i class="fa-brands fa-github"></i> Shiko GitHub
+                    </a>
                 </div>
             </div>
         </div>
@@ -242,7 +257,7 @@
         <div class="container">
             <h2 data-sq="Certifikatat" data-en="Certificates">Certifikatat</h2>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item"><i class="fa-solid fa-lightbulb"></i>
                     <h3 data-sq="Udhëzimi për Karrierë dhe Aftësi të Buta" data-en="Career Guidance and Soft Skills">
                         Udhëzimi për Karrierë dhe Aftësi të Buta </h3>
                     <p data-sq="7 - 9 Gusht 2023, Novobërdë" data-en="7 - 9 August 2023, Novobërdë"
@@ -257,7 +272,7 @@
                     <button class="view-cert-btn" data-large="images/certificate3.jpg" data-sq="Shiko Çertifikatën"
                         data-en="View Certificate">Shiko Çertifikatën</button>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item"><i class="fa-solid fa-globe"></i>
                     <h3 data-sq="Digi Camp dhe Festivali i Aftësive Digjitale 2025"
                         data-en="Digi Camp & Digital Skills Festival 2025">
                         Digi Camp dhe Festivali i Aftësive Digjitale 2025
@@ -282,7 +297,7 @@
         <div class="container">
             <h2 data-sq="Hobi" data-en="Hobbies">Hobit</h2>
             <div class="hobbies-grid">
-                <div class="hobby-card">
+                <div class="hobby-card"><i class="fa-solid fa-music"></i>
                     <h3 data-sq="Muzikë" data-en="Music">Muzika</h3>
                     <p data-sq="Dëgjimi dhe luajtja e instrumenteve muzikore."
                         data-en="Listening and playing music instruments.">Dëgjimi dhe luajtja e instrumenteve muzikore.
@@ -291,14 +306,14 @@
                         data-en="Guitar/Bass/Synth/Piano">Kitarë/Bas/Klaviaturë/Piano
                     </p>
                 </div>
-                <div class="hobby-card">
+                <div class="hobby-card"><i class="fa-solid fa-tree"></i>
                     <h3 data-sq="Natyra dhe Malet" data-en="Nature and Mountains">Natyra dhe Malet</h3>
                     <p data-sq="Ecje dhe eksplorim i peizazheve natyrore."
                         data-en="Hiking and exploring natural landscapes.">Ecje dhe eksplorim i peizazheve natyrore.</p>
                     <p style="font-weight: bold;" data-sq="Kampingu/Gjuetia/Stanet" data-en="Camping/Hunting/Cabins">
                         Kampingu/Gjuetia/Stanet</p>
                 </div>
-                <div class="hobby-card">
+                <div class="hobby-card"><i class="fa-solid fa-dumbbell"></i>
                     <h3 data-sq="Sportet" data-en="Sports">Sportet</h3>
                     <p data-sq="Një tru i shëndetshëm në një trup të shëndetshëm."
                         data-en="A healthy mind in a healthy body.">Një tru i shëndetshëm në një trup të shëndetshëm.
@@ -314,40 +329,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-something" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Kontakt -->
-    <section id="kontakt" class="contact">
+
+    <!-- FOOTER -->
+    <footer class="footer">
         <div class="container">
-            <h2 data-sq="Kontakti" data-en="Contact">Kontakti</h2>
             <div class="contact-info">
-                <p>
-                    <a href="mailto:maldon.misini93@gmail.com" class="kontakti"><i
-                            class="fa-solid fa-paper-plane"></i></a>
+                <p class="contact-icon">
+                    <a href="mailto:maldon.misini93@gmail.com"><i class="fa-solid fa-paper-plane"></i></a>
                 </p>
-                <p>
-                    <a href="tel:+38345455803" class="kontakti"><i class="fa-solid fa-phone"></i></a>
+                <p class="contact-icon">
+                    <a href="tel:+38345455803"><i class="fa-solid fa-phone"></i></a>
                 </p>
-                <p>
-                    <a href="https://maps.app.goo.gl/gVWLSiS6Hfh3p1jN6" target="_blank" class="kontakti"><i
+                <p class="contact-icon">
+                    <a href="https://maps.app.goo.gl/gVWLSiS6Hfh3p1jN6" target="_blank"><i
                             class="fa-solid fa-location-dot"></i></a>
                 </p>
-                <p>
-                    <a href="https://www.linkedin.com/in/maldon-misini-65930a387?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"" target="
-                        _blank" class="kontakti"><i class="fa-brands fa-linkedin"></i></a>
+                <p class="contact-icon">
+                    <a href="https://www.linkedin.com/in/maldon-misini-65930a387" target="_blank"><i
+                            class="fa-brands fa-linkedin"></i></a>
                 </p>
-                <p>
-                    <a href="https://github.com/maldonmisini" target="_blank" class="kontakti"><i
-                            class="fa-brands fa-github"></i></a>
+                <p class="contact-icon">
+                    <a href="https://github.com/maldonmisini" target="_blank"><i class="fa-brands fa-github"></i></a>
                 </p>
             </div>
+            <p data-sq="&copy; 2025 Maldon Misini. Të gjitha të drejtat e rezervuara."
+                data-en="&copy; 2025 Maldon Misini. All rights reserved.">&copy; 2025 Maldon Misini. Të gjitha të
+                drejtat e rezervuara.</p>
         </div>
-    </section>
-
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p data-sq="&copy; 2025 Maldon Misini. Të gjitha të drejtat e rezervuara."
-            data-en="&copy; 2025 Maldon Misini. All rights reserved.">&copy; 2025 Maldon Misini. Të gjitha të drejtat e
-            rezervuara.</p>
     </footer>
 
     <!-- Modal for Certificates -->
@@ -360,6 +368,7 @@
     </div>
 
     <script src="script.js"></script>
+
 </body>
 
 </html>
