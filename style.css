@@ -859,25 +859,13 @@ body.dark .footer {
     font-size: 2.2rem;
 
 }
-
 .contact-icon a:hover {
     color: #ffffff;
     transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-body.dark .contact-icon a:hover {
-    background: linear-gradient(145deg, #777, #666);
 }
 
 .contact-icon a:active {
     transform: translateY(1px);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(145deg, #e0e0e0, #d0d0d0);
-}
-
-body.dark .contact-icon a:active {
-    background: linear-gradient(145deg, #333, #222);
 }
 
 .footer p {
