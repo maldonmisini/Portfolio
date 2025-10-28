@@ -404,8 +404,8 @@ body.dark .profile::before {
     }
 
     .profile-pic {
-        width: 140px;
-        height: 140px;
+        width: 150px;
+        height: 150px;
     }
 }
 
@@ -420,8 +420,8 @@ body.dark .profile::before {
     }
 
     .profile-pic {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
 }
 
