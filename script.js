@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
         if (isMobile()) {
             navMenu.classList.toggle('active');
-            hamburger.textContent = navMenu.classList.contains('active') ? '✖' : '☰';
+            hamburger.textContent = navMenu.classList.contains('active') ? '☰' : '☰';
         }
     });
 
