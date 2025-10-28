@@ -860,11 +860,6 @@ body.dark .footer {
 
 }
 
-body.dark .contact-icon a {
-    color: #888;
-    background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
-}
-
 .contact-icon a:hover {
     color: #ffffff;
     transform: translateY(-3px);
