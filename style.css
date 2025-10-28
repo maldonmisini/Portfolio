@@ -79,7 +79,7 @@ body.dark .logo:hover {
     color: #a0aec0;
 }
 
-/* NAV LINKS - QENDËR */
+/* NAV LINKS - QENDËR */ 
 .nav-menu {
     position: static;
     display: block;
@@ -274,7 +274,6 @@ body.dark .hamburger {
         transition: all 0.3s ease;
         z-index: 999;
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
         overflow: hidden;
     }
 
