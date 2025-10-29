@@ -1,16 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
     // ========================
-    // 1. HAMBURGER MENU (vetëm mobile)
+    // 1. HAMBURGER MENU (vetëm mobile) + BLUR & OVERLAY
     // ========================
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+    const overlay = document.createElement('div');
+    overlay.className = 'body-overlay';
+    document.body.appendChild(overlay);
 
     const isMobile = () => window.innerWidth <= 768;
 
     hamburger.addEventListener('click', () => {
         if (isMobile()) {
             navMenu.classList.toggle('active');
-            hamburger.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+            hamburger.textContent = navMenu.classList.contains('active') ? '✖' : '☰';
+
+            // Blur dhe overlay kur hapet menuja
+            if (navMenu.classList.contains('active')) {
+                body.classList.add('blurred');
+                overlay.classList.add('active');
+            } else {
+                body.classList.remove('blurred');
+                overlay.classList.remove('active');
+            }
         }
     });
 
@@ -19,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isMobile()) {
                 navMenu.classList.remove('active');
                 hamburger.textContent = '☰';
+                body.classList.remove('blurred');
+                overlay.classList.remove('active');
             }
         });
     });
@@ -27,7 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isMobile()) {
             navMenu.classList.remove('active');
             hamburger.textContent = '☰';
+            body.classList.remove('blurred');
+            overlay.classList.remove('active');
         }
+    });
+
+    overlay.addEventListener('click', () => {
+        // Mbyll menunë kur klikohet jashtë
+        navMenu.classList.remove('active');
+        hamburger.textContent = '☰';
+        body.classList.remove('blurred');
+        overlay.classList.remove('active');
     });
 
     // ========================
@@ -78,12 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========================
     // 3. TYPING EFFECT ME KURSOR TË PËRHERSHËM
     // ========================
-    const typingContainer = document.querySelector('.profession-typing-text');
     const typingText = document.querySelector('.typing');
     let currentLang = localStorage.getItem('language') || 'sq';
     let currentIndex = 0;
 
-    // Kohët
     const TYPE_SPEED = 100;
     const DELETE_SPEED = 50;
     const PAUSE_AFTER_TYPE = 2000;
@@ -94,27 +117,23 @@ document.addEventListener('DOMContentLoaded', () => {
         en: ['Web Developer', 'Programmer', 'Software Engineer', 'Volunteer', 'Multi-instrumentalist']
     };
 
-    // Variablat për intervale
     let typeInterval = null;
     let deleteInterval = null;
     let pauseTimeout = null;
 
-    // Krijon kursorin një herë dhe e mban përgjithmonë
     const cursor = document.createElement('span');
     cursor.className = 'cursor';
     cursor.textContent = '|';
-    typingText.after(cursor); // vendos kursorin pas .typing
+    typingText.after(cursor);
 
     function clearAllTypingIntervals() {
         if (typeInterval) clearInterval(typeInterval);
         if (deleteInterval) clearInterval(deleteInterval);
         if (pauseTimeout) clearTimeout(pauseTimeout);
-        typeInterval = deleteInterval = pauseTimeout = null;
     }
 
     function updateTypingDisplay(textSoFar) {
         typingText.textContent = textSoFar;
-        // Kursor mbetet gjithmonë pas tekstit
         typingText.after(cursor);
     }
 
@@ -131,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateTypingDisplay(text.substring(0, charIndex));
             } else {
                 clearInterval(typeInterval);
-                typeInterval = null;
                 pauseTimeout = setTimeout(startDeleting, PAUSE_AFTER_TYPE);
             }
         }, TYPE_SPEED);
@@ -147,23 +165,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateTypingDisplay(fullText.substring(0, deleteIndex));
             } else {
                 clearInterval(deleteInterval);
-                deleteInterval = null;
                 currentIndex++;
                 pauseTimeout = setTimeout(startTyping, PAUSE_AFTER_DELETE);
             }
         }, DELETE_SPEED);
     }
 
-    // Fillo typing
     startTyping();
 
-    // Rifillo kur ndryshon gjuha
     window.updateTyping = function () {
         currentIndex = 0;
         clearAllTypingIntervals();
-        setTimeout(() => {
-            startTyping();
-        }, 100);
+        setTimeout(() => startTyping(), 100);
     };
 
     // ========================
@@ -189,14 +202,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========================
     const modal = document.getElementById('cert-modal');
     const modalImg = document.getElementById('modal-img');
-    const modalCaption = document.getElementById('modal-caption');
     const closeBtn = document.querySelector('.close');
 
     document.querySelectorAll('.cert-img, .view-cert-btn').forEach(item => {
         item.addEventListener('click', function () {
             modal.style.display = 'block';
             modalImg.src = this.dataset.large || this.src;
-            modalCaption.textContent = this.alt || 'Certificate';
         });
     });
 
@@ -205,9 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
+        if (e.target === modal) modal.style.display = 'none';
     });
 
     // ========================
@@ -217,9 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const elements = document.querySelectorAll('[data-sq]');
 
     elements.forEach(el => {
-        if (!el.dataset.original) {
-            el.dataset.original = el.textContent.trim();
-        }
+        if (!el.dataset.original) el.dataset.original = el.textContent.trim();
     });
 
     const savedLang = localStorage.getItem('language') || 'sq';
@@ -244,10 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
             el.textContent = lang === 'en' ? (el.dataset.en || el.dataset.original) : el.dataset.original;
         });
         document.documentElement.lang = lang;
-
-        if (typeof window.updateTyping === 'function') {
-            window.updateTyping();
-        }
+        if (typeof window.updateTyping === 'function') window.updateTyping();
     }
 
     // ========================
