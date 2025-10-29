@@ -828,6 +828,7 @@ body.dark .timeline-item h3 {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-decoration:none;
 }
 
 .view-cert-btn:hover,
