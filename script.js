@@ -1,24 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
     // ========================
-    // 1. HAMBURGER MENU (vetëm mobile)
+    // 1. HAMBURGER MENU ME OVERLAY
     // ========================
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const overlay = document.querySelector('.mobile-overlay');
 
     const isMobile = () => window.innerWidth <= 768;
 
     hamburger.addEventListener('click', () => {
         if (isMobile()) {
-            navMenu.classList.toggle('active');
-            hamburger.textContent = navMenu.classList.contains('active') ? '✖' : '☰';
+            const isActive = navMenu.classList.toggle('active');
+            overlay.classList.toggle('active', isActive);
+            hamburger.textContent = isActive ? '✖' : '☰';
+            document.body.style.overflow = isActive ? 'hidden' : '';
         }
+    });
+
+    overlay.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        hamburger.textContent = '☰';
+        document.body.style.overflow = '';
     });
 
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             if (isMobile()) {
                 navMenu.classList.remove('active');
+                overlay.classList.remove('active');
                 hamburger.textContent = '☰';
+                document.body.style.overflow = '';
             }
         });
     });
@@ -26,64 +38,29 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
         if (!isMobile()) {
             navMenu.classList.remove('active');
+            overlay.classList.remove('active');
             hamburger.textContent = '☰';
+            document.body.style.overflow = '';
         }
     });
 
     // ========================
     // 2. SCROLLREVEAL ANIMATIONS
     // ========================
-    ScrollReveal().reveal('.hero-content', {
-        delay: 200,
-        distance: '50px',
-        origin: 'bottom',
-        duration: 1000
-    });
-
-    ScrollReveal().reveal('.skill-card', {
-        delay: 300,
-        distance: '30px',
-        origin: 'bottom',
-        interval: 200
-    });
-
-    ScrollReveal().reveal('.timeline-item', {
-        delay: 300,
-        distance: '30px',
-        origin: 'left',
-        interval: 200
-    });
-
-    ScrollReveal().reveal('.cert-card', {
-        delay: 300,
-        distance: '30px',
-        origin: 'right',
-        interval: 200
-    });
-
-    ScrollReveal().reveal('.hobby-card', {
-        delay: 300,
-        distance: '30px',
-        origin: 'bottom',
-        interval: 200
-    });
-
-    ScrollReveal().reveal('.contact-info', {
-        delay: 300,
-        distance: '50px',
-        origin: 'bottom',
-        duration: 1000
-    });
+    ScrollReveal().reveal('.hero-content', { delay: 200, distance: '50px', origin: 'bottom', duration: 1000 });
+    ScrollReveal().reveal('.skill-card', { delay: 300, distance: '30px', origin: 'bottom', interval: 200 });
+    ScrollReveal().reveal('.timeline-item', { delay: 300, distance: '30px', origin: 'left', interval: 200 });
+    ScrollReveal().reveal('.hobby-card', { delay: 300, distance: '30px', origin: 'bottom', interval: 200 });
+    ScrollReveal().reveal('.contact-info', { delay: 300, distance: '50px', origin: 'bottom', duration: 1000 });
 
     // ========================
-    // 3. TYPING EFFECT ME KURSOR TË PËRHERSHËM
+    // 3. TYPING EFFECT
     // ========================
     const typingContainer = document.querySelector('.profession-typing-text');
     const typingText = document.querySelector('.typing');
     let currentLang = localStorage.getItem('language') || 'sq';
     let currentIndex = 0;
 
-    // Kohët
     const TYPE_SPEED = 100;
     const DELETE_SPEED = 50;
     const PAUSE_AFTER_TYPE = 2000;
@@ -94,16 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
         en: ['Web Developer', 'Programmer', 'Software Engineer', 'Volunteer', 'Multi-instrumentalist']
     };
 
-    // Variablat për intervale
     let typeInterval = null;
     let deleteInterval = null;
     let pauseTimeout = null;
 
-    // Krijon kursorin një herë dhe e mban përgjithmonë
     const cursor = document.createElement('span');
     cursor.className = 'cursor';
     cursor.textContent = '|';
-    typingText.after(cursor); // vendos kursorin pas .typing
+    typingText.after(cursor);
 
     function clearAllTypingIntervals() {
         if (typeInterval) clearInterval(typeInterval);
@@ -114,13 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateTypingDisplay(textSoFar) {
         typingText.textContent = textSoFar;
-        // Kursor mbetet gjithmonë pas tekstit
         typingText.after(cursor);
     }
 
     function startTyping() {
         clearAllTypingIntervals();
-
         const text = professions[currentLang][currentIndex % professions[currentLang].length];
         let charIndex = 0;
         updateTypingDisplay('');
@@ -154,20 +127,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }, DELETE_SPEED);
     }
 
-    // Fillo typing
     startTyping();
 
-    // Rifillo kur ndryshon gjuha
     window.updateTyping = function () {
         currentIndex = 0;
         clearAllTypingIntervals();
-        setTimeout(() => {
-            startTyping();
-        }, 100);
+        setTimeout(startTyping, 100);
     };
 
     // ========================
-    // 4. DARK MODE TOGGLE
+    // 4. DARK MODE
     // ========================
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
@@ -189,13 +158,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========================
     const modal = document.getElementById('cert-modal');
     const modalImg = document.getElementById('modal-img');
-    const modalCaption = document.getElementById('modal-caption');
     const closeBtn = document.querySelector('.close');
 
-    document.querySelectorAll('.cert-img, .view-cert-btn').forEach(item => {
-        item.addEventListener('click', function () {
+    document.querySelectorAll('.view-cert-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
             modal.style.display = 'block';
-            modalImg.src = this.dataset.large || this.src;
+            modalImg.src = btn.dataset.large;
         });
     });
 
@@ -243,7 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
             el.textContent = lang === 'en' ? (el.dataset.en || el.dataset.original) : el.dataset.original;
         });
         document.documentElement.lang = lang;
-
         if (typeof window.updateTyping === 'function') {
             window.updateTyping();
         }
@@ -265,11 +232,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         profileSection.style.backgroundImage = `url(${backgrounds[index]})`;
 
-        const changeBackground = () => {
+        setInterval(() => {
             index = (index + 1) % backgrounds.length;
             profileSection.style.backgroundImage = `url(${backgrounds[index]})`;
-        };
-
-        setInterval(changeBackground, 5000);
+        }, 5000);
     }
 });
