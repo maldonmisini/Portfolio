@@ -108,8 +108,7 @@ body.dark .logo:hover {
 .nav-links li a {
     text-decoration: none;
     color: #1a1a1a;
-    font-weight: 400;
-    /* Font më i hollë për elegancë */
+    font-weight: bold;
     font-size: 0.95rem;
     padding: 0.5rem 0;
     transition: color 0.3s ease;
@@ -214,7 +213,8 @@ body.dark .lang-option.active {
     color: #1a1a1a;
     font-size: 1.4rem;
     cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transform: rotateZ(-10deg);
+    transition: 0.5s ease-in-out;
 }
 
 body.dark .dark-mode-btn {
@@ -222,8 +222,9 @@ body.dark .dark-mode-btn {
 }
 
 .dark-mode-btn:hover {
-    transform: rotate(20deg);
-    color: #6b7280;
+    transform: rotateZ(10deg);
+    transition: 0.5s ease-in-out;
+
 }
 
 body.dark .dark-mode-btn:hover {
@@ -275,7 +276,7 @@ body.dark .hamburger {
 @media (max-width: 768px) {
     .nav {
         padding: 0.8rem 1rem;
-        height: 50px;
+        height: 55px;
     }
 
     .logo {
@@ -284,7 +285,7 @@ body.dark .hamburger {
 
     .nav-menu {
         position: fixed;
-        top: 55px;
+        top: 50px;
         right: -300px;
         width: 280px;
         height: 100vh;
@@ -316,11 +317,11 @@ body.dark .hamburger {
     .nav-links li a {
         display: block;
         padding: 1rem;
-        margin: 0.5rem 0;
         background: rgba(107, 114, 128, 0.1);
         border-radius: 10px;
-        font-weight: 500;
+        font-weight: bold;
         transition: all 0.3s ease;
+        text-align: center;
     }
 
     body.dark .nav-links li a {
@@ -417,6 +418,7 @@ body.dark .profile::before {
     object-fit: cover;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    padding: 10px;
 }
 
 /* RESPONSIVE */
@@ -686,7 +688,7 @@ body.dark .timeline::before {
     flex-shrink: 0;
     z-index: 1;
     font-size: 1.75rem;
-    /* Madhësia perfekte për Font Awesome */
+
     color: #6b7280;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     border: 3px solid #f1f5f9;
@@ -697,6 +699,10 @@ body.dark .timeline::before {
     line-height: 1;
     /* Hiq çdo lartësi të tepërt */
     text-align: center;
+}
+
+#link_icon {
+    color: red;
 }
 
 body.dark .icon {
@@ -812,7 +818,23 @@ body.dark .timeline-item h3 {
     }
 }
 
-.view-cert-btn,
+.view-cert-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    color: #ffffff;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
 .project-link {
     display: inline-block;
     margin-top: 1rem;
@@ -821,14 +843,14 @@ body.dark .timeline-item h3 {
     padding: 0.6rem 1.2rem;
     border: none;
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 0.5px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .view-cert-btn:hover,
@@ -836,14 +858,6 @@ body.dark .timeline-item h3 {
     background: linear-gradient(135deg, #4b5563, #374151);
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-body.dark .view-cert-btn {
-    background: linear-gradient(135deg, #555, #777);
-}
-
-body.dark .view-cert-btn:hover {
-    background: linear-gradient(135deg, #777, #555);
 }
 
 /* Certificates */
@@ -965,8 +979,8 @@ body.dark .hobby-card h3 {
 .footer {
     background: linear-gradient(145deg, #1a1a1a, #252525);
     color: #e0e0e0;
-    padding: 2.5rem 0;
-    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    font-size: 1rem;
     box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
     transition: background 0.3s ease;
 }
@@ -979,7 +993,7 @@ body.dark .footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .contact-info {
@@ -988,7 +1002,7 @@ body.dark .footer {
     justify-content: center;
     align-items: center;
     font-size: 2.2rem;
-    gap: 30px;
+    gap: 50px;
 }
 
 .contact-icon a,
@@ -1010,9 +1024,8 @@ i {
 
 .footer p {
     margin-top: 1rem;
-    font-weight: 400;
-    /* Font më elegant */
-    font-size: 0.85rem;
+    font-weight: bold;
+    font-size: 1rem;
     color: #d1d5db;
     letter-spacing: 0.5px;
 }
@@ -1024,7 +1037,7 @@ body.dark .footer p {
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .footer {
-        padding: 2rem 0;
+        padding: 0.5rem 0;
     }
 
     .contact-info {
@@ -1045,7 +1058,7 @@ body.dark .footer p {
 
 @media (max-width: 480px) {
     .footer {
-        padding: 1.5rem 0;
+        padding: 0.5rem 0;
     }
 
     .contact-info {
@@ -1128,20 +1141,23 @@ body.dark .modal-content p {
     color: #ffffff;
     font-size: 20px;
     font-weight: bold;
-    background: #6b7280;
+    background: linear-gradient(135deg, #6b7280, #4b5563);
     width: 40px;
     height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s;
+    transform: rotateZ(-90deg);
+    transition: 0.5s ease-in-out;
 }
 
 .close:hover,
 .close:focus {
-    background: #555;
     cursor: pointer;
+    background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+    transform: rotateZ(90deg);
+    transition: 0.5s ease-in-out;
 }
 
 /* Responsive Design */
