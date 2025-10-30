@@ -237,4 +237,5 @@ document.addEventListener('DOMContentLoaded', () => {
             profileSection.style.backgroundImage = `url(${backgrounds[index]})`;
         }, 5000);
     }
+
 });
