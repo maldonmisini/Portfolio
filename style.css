@@ -1138,8 +1138,6 @@ body.dark .modal-content p {
     color: #ffffff;
     font-weight: bold;
     background: linear-gradient(135deg, #6b7280, #4b5563);
-    width: 40px;
-    height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
