@@ -418,7 +418,7 @@ body.dark .profile::before {
     object-fit: cover;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-    padding: 5px;
+    padding: 10px;
 }
 
 /* RESPONSIVE */
@@ -1136,7 +1136,6 @@ body.dark .modal-content p {
     top: -10px;
     right: -10px;
     color: #ffffff;
-    font-size: 20px;
     font-weight: bold;
     background: linear-gradient(135deg, #6b7280, #4b5563);
     width: 40px;
