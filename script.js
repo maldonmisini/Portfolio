@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isMobile()) {
             const isActive = navMenu.classList.toggle('active');
             overlay.classList.toggle('active', isActive);
-            hamburger.textContent = isActive ? '✖' : '☰';
+            hamburger.textContent = isActive ? '⨉' : '☰';
             document.body.style.overflow = isActive ? 'hidden' : '';
         }
     });
