@@ -1137,7 +1137,8 @@ body.dark .modal-content p {
     right: -10px;
     font-weight: bold;
     font-size: 20px;
-    color: linear-gradient(135deg, #6b7280, #4b5563);
+    color: #fffff;
+    background: linear-gradient(135deg, #6b7280, #4b5563);
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
@@ -1150,7 +1151,7 @@ body.dark .modal-content p {
 .close:hover,
 .close:focus {
     cursor: pointer;
-    color: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+    background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
     transform: rotateZ(90deg);
     transition: 0.5s ease-in-out;
 }
