@@ -1139,9 +1139,8 @@ body.dark .modal-content p {
     font-weight: bold;
     background: linear-gradient(135deg, #6b7280, #4b5563);
     border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 10px;
+    width: 2rem;
+    height: 2rem;
     align-items: center;
     justify-content: center;
     transform: rotateZ(-90deg);
