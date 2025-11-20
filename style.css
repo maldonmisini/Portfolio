@@ -818,46 +818,68 @@ body.dark .timeline-item h3 {
     }
 }
 
-.view-cert-btn {
-    display: inline-block;
-    margin-top: 1rem;
+.view-cert-btn,
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+    padding: 0.75rem 1.4rem;
     background: linear-gradient(135deg, #6b7280, #4b5563);
     color: #ffffff;
-    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: none;
+    letter-spacing: 0.4px;
     border: none;
-    border-radius: 8px;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
 }
 
-.project-link {
-    display: inline-block;
-    margin-top: 1rem;
-    background: linear-gradient(135deg, #6b7280, #4b5563);
-    color: #ffffff;
-    padding: 0.6rem 1.2rem;
-    border: none;
-    border-radius: 8px;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    text-decoration: none;
+.view-cert-btn::before,
+.project-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+    transition: left 0.6s;
+}
+
+.view-cert-btn:hover::before,
+.project-link:hover::before {
+    left: 100%;
 }
 
 .view-cert-btn:hover,
 .project-link:hover {
     background: linear-gradient(135deg, #4b5563, #374151);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+}
+
+.view-cert-btn:active,
+.project-link:active {
+    transform: translateY(-1px);
+}
+
+.view-cert-btn::after,
+.project-link::after {
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.view-cert-btn:hover::after,
+.project-link:hover::after {
+    transform: translateX(4px);
 }
 
 /* Certificates */
@@ -1135,17 +1157,18 @@ body.dark .modal-content p {
     position: absolute;
     top: -10px;
     right: -10px;
-    font-weight: bold;
     color: #ffffff;
+    font-weight: bold;
     background: linear-gradient(135deg, #6b7280, #4b5563);
     border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-    padding: 0.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
     align-items: center;
     justify-content: center;
-    transform: rotateZ(-90deg);
     transition: 0.5s ease-in-out;
+    font-size: 1.5rem;
+    line-height: 1;
 }
 
 .close:hover,
