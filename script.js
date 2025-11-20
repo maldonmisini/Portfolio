@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // ========================
-    // 4. DARK MODE
+    // 4. DARK MODE VISION
     // ========================
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
